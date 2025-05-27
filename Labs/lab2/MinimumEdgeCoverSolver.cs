@@ -21,9 +21,11 @@ public class MinimumEdgeCoverSolver
         {
             foreach (var subset in Combinations.GetCombinations(edges, k))
             {
+                // (0, 2), (0, 3), (1, 4), (5, 6), (7, 12), (9, 8), (10, 11), (14, 13)
                 var coveredVertices = new HashSet<int>();
                 foreach (var (u, v) in subset)
                 {
+                    // {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
                     coveredVertices.Add(u);
                     coveredVertices.Add(v);
                 }

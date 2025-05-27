@@ -5,7 +5,7 @@ namespace Tests.lab2;
 
 public class GraphTests
 {
-    private (int u, int v, int weight)[] edges =
+    private readonly (int u, int v, int weight)[] edgesList =
     [
         (0, 2, 12),
         (0, 3, 10),
@@ -37,7 +37,7 @@ public class GraphTests
     [Test]
     public void TestMinimumVertexCoverSolver()
     {
-        var solver = new Graph(edges);
+        var solver = new Graph(edgesList);
 
         var result = solver.Solve();
 
@@ -47,17 +47,17 @@ public class GraphTests
     [Test]
     public void TestMinimumEdgeCoverSolver()
     {
-        var solver = new MinimumEdgeCoverSolver(edges);
+        var solver = new MinimumEdgeCoverSolver(edgesList);
 
         var result = solver.Solve();
 
         result.Should().BeEquivalentTo([(0, 2), (0, 3), (1, 4), (5, 6), (7, 12), (9, 8), (10, 11), (14, 13)]);
     }
-    
+
     [Test]
     public void TestGraphColoring()
     {
-        var solver = new GraphColoring(edges);
+        var solver = new GraphColoring(edgesList);
 
         var result = solver.ColorVertices();
 
